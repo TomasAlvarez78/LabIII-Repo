@@ -18,3 +18,7 @@ Documentacion utilizada:
 2. https://www.mfitzp.com/courses/pyside/ 
 	-Getting started with PySide
 
+## Como ejecutar:
+Para ejecutar la calculadora se debe entrar a un entorno virtual, con PySide6 y Shiboken6 instalados
+Ejecutar el archivo python PyCalc.py
+
