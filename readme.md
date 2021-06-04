@@ -9,9 +9,9 @@
 
 Libreria utilizada: _PySide6 & Qt_
 
-PySide6 es una libreria que trabaja en conjunto (cross-platform) con Qt, el cual es un framework de C++.
+PySide6 es una libreria que trabaja en conjunto (cross-platform) con Qt, el cual es un framework de C++. Esta libreria nos da la posibilidad de crear nuestros entornos graficos facilmente.
 
-PySide6 nos da la posibilidad de crear nuestros entornos graficos facilmente.
+Decidimos mediante las herramientas que nos brinda, implementar una calculadora.
 
 Documentacion utilizada:
 1. https://doc.qt.io/qt.html
