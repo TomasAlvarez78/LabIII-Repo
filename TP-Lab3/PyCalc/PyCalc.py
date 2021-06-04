@@ -58,6 +58,7 @@ class PyCalculadora(QMainWindow):
 			self.botones[btnText] = QPushButton(btnText)
 			self.botones[btnText].setFixedSize(40,40)
 			capaBotones.addWidget(self.botones[btnText],pos[0],pos[1])
+			# self.botones[btnText].clicked.connect(lambda: self.buttonClick(btnText))
 
 		#Asignacion de acciones a botones
 		self.botones['7'].clicked.connect(lambda: self.buttonClick('7'))
@@ -103,10 +104,10 @@ class PyCalculadora(QMainWindow):
 		print(res)
 
 def main():
-	pyCalculadora = QApplication(sys.argv)
+	ventana = QApplication(sys.argv)
 	calcu = PyCalculadora()
 	calcu.show()
-	sys.exit(pyCalculadora.exec())
+	sys.exit(ventana.exec())
 
 if __name__ == '__main__':
 	main()
