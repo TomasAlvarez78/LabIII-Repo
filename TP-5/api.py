@@ -22,10 +22,14 @@ class API():
             self.rlistaAPI = list(reversed(self.listaAPI))
             self.minDeaths = self.listaAPI[0][0]
             self.maxDeaths = self.listaAPI[len(self.listaAPI)-1][0]
-            print(f"Menor cant de muertes: {self.minDeaths}")
-            print(f"Mayor cant de muertes: {self.maxDeaths}")
         else:
             print(f"Hubo un error en el request ({response.status_code})")
+
+    def getMenor(self):
+        return self.minDeaths
+
+    def getMayor(self):
+        return self.maxDeaths
 
     def topmenor10(self):
         print("Top 10 ranking de menos muertos")
@@ -53,4 +57,3 @@ class API():
 
     def askPais(self,pais):
         print(pais)
-        
