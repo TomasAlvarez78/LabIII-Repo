@@ -1,6 +1,4 @@
-from api import *
 from pyside import *
-import plotly.graph_objects as go
 
 def main():
     print("Main started")
@@ -9,8 +7,6 @@ def main():
     app = PyMain()
     app.show()
     ventana.exec_()
-
-
 
 # La aplicación me debe entregar un semáforo con el top 10 de los paises con menos muertes por candidad de habitantes.
 # El periodo de tiempo es desde que inicio la pandemia. 

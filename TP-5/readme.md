@@ -18,8 +18,6 @@ Documentacion utilizada:
 2. https://www.mfitzp.com/courses/pyside/ -Getting started with PySide
 3. https://plotly.com/python/
 
-
-
 ## Como ejecutar:
 Para ejecutar el mismo debe entrar a un entorno virtual e instalar  la libreria requests, plotly y PySyde2.
 
