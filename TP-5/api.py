@@ -1,6 +1,6 @@
 from os import initgroups
 import requests
-from config import *
+from settings import *
 class API():
     
     def __init__(self) -> None:
@@ -32,14 +32,37 @@ class API():
         return self.maxDeaths
 
     def topmenor10(self):
-        print("Top 10 ranking de menos muertos")
+        listaNumeros = list()
+        listaNombres = list()
         for i in range(0,10):
-            print(self.listaAPI[i])
+            listaNumeros.append(self.listaAPI[i][0])
+            listaNombres.append('\n'.join(self.listaAPI[i][1]))
+
+        return listaNumeros,listaNombres
+
+        # print("Top 10 ranking de menos muertos")
+        # for i in range(0,10):
+        #     print(self.listaAPI[i])
 
     def topmayor10(self):
-        print("Top 10 ranking de mas muertos")
+        listaNumeros = list()
+        listaNombres = list()
         for i in range(0,10):
-            print(self.rlistaAPI[i])
+            listaNumeros.append(self.rlistaAPI[i][0])
+            listaNombres.append('\n'.join(self.rlistaAPI[i][1]))
+
+        return listaNumeros,listaNombres
+
+
+
+        # listaTemp = list()
+        # for i in range(0,10):
+        #     listaTemp.append(self.rlistaAPI[i])
+        # return listaTemp
+        
+        # print("Top 10 ranking de mas muertos")
+        # for i in range(0,10):
+        #     print(self.rlistaAPI[i])
 
     def entre_rangos(self,min=-1,max=-1):
         if min == -1:

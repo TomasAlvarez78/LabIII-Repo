@@ -2,13 +2,17 @@ import sys
 from PySide2.QtCore import Qt
 from PySide2.QtGui import QPixmap
 from PySide2.QtWidgets import QApplication,QMainWindow,QWidget,QGridLayout,QPushButton,QVBoxLayout,QLineEdit,QLabel
-from api import *
+from graficoplotly import *
 
 class PyMain(QMainWindow):
     def __init__(self):
         super().__init__()
+
+        self.graficoBarra = GraficoBarra()
+        self.graficoBarra.requestAPI()
+
         self.setWindowTitle("Aplicacion Lab III")
-        self.setFixedSize(382,280)
+        self.setFixedSize(382,230)
 
         # Creo los Layouts
         self.capaVertical = QVBoxLayout()
@@ -25,8 +29,8 @@ class PyMain(QMainWindow):
 
         # Funciones de Creacion de Objetos
         self.createImage()
-        self.createText()
-        self.createDisplay()
+        # self.createText()
+        # self.createDisplay()
         self.createButtons()
 
         self.capaVertical.addStretch(1)
@@ -69,8 +73,28 @@ class PyMain(QMainWindow):
         
 
     def createButtons(self):
-        button1 = QPushButton("Preguntar API")        
-        # button1.clicked.connect()
-        self.capaButtons.addWidget(button1)
+        # button1 = QPushButton("Request API")        
+        # button1.clicked.connect(self.runAPI)
+
+        button2 = QPushButton("Top 10 menos muertes")        
+        button2.clicked.connect(self.menosMuertes)
+
+        button3 = QPushButton("Top 10 mas muertes")        
+        button3.clicked.connect(self.masMuertes)
+
+        # self.capaButtons.addWidget(button1)
+        self.capaButtons.addWidget(button2)
+        self.capaButtons.addWidget(button3)
+
+    def runAPI(self):
+        self.graficoBarra = GraficoBarra()
+        self.graficoBarra.requestAPI()
+
+    def menosMuertes(self):
+        self.graficoBarra.graficarMenor()
+
+    def masMuertes(self):
+        self.graficoBarra.graficarMayor()
+
 
 
