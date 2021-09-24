@@ -12,10 +12,12 @@ class GraficoBarra():
 
     def graficarMenor(self):
         lista = self.covidAPI.topmenor10()
-        fig = go.Figure([go.Bar(x=lista[1], y=lista[0])])
-        fig.show()
+        self.graficarLista(lista)
 
     def graficarMayor(self):
         lista = self.covidAPI.topmayor10()
+        self.graficarLista(lista)
+
+    def graficarLista(self,lista):
         fig = go.Figure([go.Bar(x=lista[1], y=lista[0])])
         fig.show()

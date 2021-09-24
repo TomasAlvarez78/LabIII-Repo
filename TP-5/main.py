@@ -9,10 +9,6 @@ def main():
     app = PyMain()
     app.show()
     ventana.exec_()
-    
-    # covidAPI.topmenor10()
-    # covidAPI.topmayor10()
-    # covidAPI.entre_rangos(100,2000)
 
 
 

@@ -70,7 +70,6 @@ class PyMain(QMainWindow):
 
         self.capaGrid.addWidget(self.display,1,1)
         self.capaGrid.addWidget(self.display2,2,1)
-        
 
     def createButtons(self):
         # button1 = QPushButton("Request API")        
