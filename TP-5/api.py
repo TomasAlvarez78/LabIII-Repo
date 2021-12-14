@@ -36,8 +36,7 @@ class API():
         listaNombres = list()
         for i in range(0,10):
             listaNumeros.append(self.listaAPI[i][0])
-            listaNombres.append('\n'.join(self.listaAPI[i][1]))
-
+            listaNombres.append(''.join(self.listaAPI[i][1]))
         return listaNumeros,listaNombres
 
         # print("Top 10 ranking de menos muertos")
@@ -52,8 +51,6 @@ class API():
             listaNombres.append('\n'.join(self.rlistaAPI[i][1]))
 
         return listaNumeros,listaNombres
-
-
 
         # listaTemp = list()
         # for i in range(0,10):

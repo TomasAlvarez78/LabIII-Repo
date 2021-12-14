@@ -6,7 +6,14 @@ from django.db.models.deletion import CASCADE
 
 class Categoria(models.Model):
     nombre = models.CharField(max_length=100)
-    descripcion = models.TextField(max_length=400)
+    descripcion = models.TextField(max_length=400,
+                                    default=None,
+                                    null=True,
+                                    blank=True)
+    imagen = models.ImageField(upload_to='categoriaImagenes/',
+                                null=True,
+                                default=None,
+                                blank=True)
 
     class Meta:
         verbose_name = 'Categoria'
@@ -15,19 +22,8 @@ class Categoria(models.Model):
     def __str__(self):
         return self.nombre
 
-    # def cargarCategorias():
-    #     categorias = cargarCategorias()
-    #     for cat in categorias:
-    #         c = Categoria.objects.create(
-    #             nombre = cat
-    #         )
-    #         c.save()
-
 class Ingrediente(models.Model):
     nombre = models.CharField(max_length=100)
-    IngredientCocktailID = models.IntegerField(default=0,
-                                                blank=True)
-
     class Meta:
         verbose_name = 'Ingrediente'
         verbose_name_plural = 'Ingredientes'
@@ -45,6 +41,7 @@ class Bebida(models.Model):
                                             blank=True,
                                             related_name='mis_ingredientes')
     imagen = models.ImageField(upload_to='bebidasImagenes/')
+    # imagen_url = models.CharField(max_length=512)
     
     class Meta:
         verbose_name = 'Bebida'
