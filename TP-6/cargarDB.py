@@ -3,10 +3,9 @@ import os
 import sys
 import requests
 from PIL import Image
+import glob
 
 from urllib.request import AbstractDigestAuthHandler, urlopen
-
-
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings")
 os.environ["DJANGO_SETTINGS_MODULE"] = "config.settings"
@@ -28,12 +27,14 @@ if r.status_code == 200:
         categorias.append(cat['strCategory'])
 
 # Cargo las categorias
-cat_imagen = 0
+cat_imagen = 1
 for cat in categorias:
     m = Categoria(
-                nombre = cat
-
-              )
+                nombre = cat,
+                descripcion = "Descripcion default",
+                imagen = glob.glob(f'media/categoriaImagenes/{cat_imagen} -*.jpg')
+    )
+    cat_imagen = cat_imagen + 1
     m.save()
 
 print("Las categorias han sido obtenidas")
@@ -103,8 +104,4 @@ for cat in categorias:
         
         objetos_ingredientes.clear()
 
-        print("")  
-
-
-
-
+        print("")
