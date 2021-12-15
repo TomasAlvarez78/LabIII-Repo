@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
-
+from django.views.generic import ListView
 from DrinksAndPeople.forms import ComentarioForm
-from DrinksAndPeople.models import Comentario
+from DrinksAndPeople.models import Categoria, Comentario
 
 
 
@@ -36,7 +36,7 @@ def home(request):
 
 def categories(request):
     
-    return render(request, "categories.html")
+    return render(request, "categorias.html")
 
 def categorie(request,pk):
     context = {'categories': categories}
@@ -60,3 +60,14 @@ def form_view(request,):
         form = ComentarioForm()  
 
     return render(request, 'prueba.html', {'form': form})
+
+class CategoriesList(ListView):
+    model = Categoria
+    template_name = 'categories.html'
+
+
+#def my_view(request, A_pk):
+#       
+#    a = Categoria.objects.get(pk=A_pk)    
+#    
+#    return render('pruebacategoria.html', {'a': a})
