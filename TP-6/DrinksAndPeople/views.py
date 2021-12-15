@@ -1,47 +1,33 @@
 from django.shortcuts import render, redirect
 from django.views.generic import ListView
 from DrinksAndPeople.forms import ComentarioForm
-from DrinksAndPeople.models import Categoria, Comentario
+from DrinksAndPeople.models import Categoria, Bebida
 
 
 
-categories = [
-    {'id': 1, 'name': 'Categorie 1'},
-    {'id': 2, 'name': 'Categorie 2'},
-    {'id': 3, 'name': 'Categorie 3'},
-    #{'id': 7, 'name': 'Categorie 3'},
-    #{'id': 8, 'name': 'Categorie 3'},
-    #{'id': 9, 'name': 'Categorie '},
-    #{'id': 10, 'name':'Categorie 10'},
-    #{'id': 11, 'name':'Categorie 11'},
-]
 
-posts = [
-    {
-        'author': 'ASDSADASD',
-        'title': 'Blog Post 1',
-        'content' : 'First post content',
-        'date_posted': 'NOv 20, 2011'
-    },
-    {
-        'author': 'asdasd',
-        'title': 'Blog Post 1',
-        'content' : 'First post content',
-        'date_posted': 'NOv 18, 2011'
-    }
-]
 
 def home(request):
     return render(request, "home.html")
 
-def categories(request):
-    
+def categories(request,id=None, *args, **kwargs):
+
     return render(request, "categorias.html")
 
 def categorie(request,pk):
-    context = {'categories': categories}
-    
-    return render(request,"categorie.html", context)
+
+    #bebida = Bebida.objects.get(id=pk)
+    #print(pk)
+    #categoria__id = Categoria.objects.get(id=pk)
+    bebida = Bebida.objects.filter(categoria__id = pk)
+    context = {'bebida': bebida}
+    print(bebida)
+    return render(request,"categorie.html",context)
+    #id = id
+    #bebida_obj = None
+    #if id is not None:
+    #    bebida_obj = Bebida.objects.get(id=id)
+    #context = {'object':bebida_obj}
 
 #def form_view(request):
 #
