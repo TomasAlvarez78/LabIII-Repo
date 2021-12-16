@@ -61,11 +61,11 @@ def categorie(request,pk):
     return render(request,"categorie.html", context)
 
 def random (request):
-    bebida_random = randint(0, 44)
+    bebida_random = randint(1, 44)
     bebida= Bebida.objects.get(id=bebida_random)
     print (bebida)
-    #context = {'id_bebida' : Bebida.BebidaCocktailID  }
-    return render (request, "random.html" )
+    context = {'bebida' : bebida  }
+    return render (request, "random.html", context)
 
 #def form_view(request):
 #
