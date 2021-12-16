@@ -1,50 +1,28 @@
 from django.shortcuts import render, redirect
-from django.views.generic import ListView, View
+from django.views.generic import ListView, View, TemplateView
 from DrinksAndPeople.forms import ComentarioForm
 from DrinksAndPeople.models import Categoria, Bebida
 
 
+class HomeVista(TemplateView):
+    template_name = 'home.html'
+
+    def get_context_data(self, **kwargs):
+        context =  super().get_context_data(**kwargs)
+        all_bebidas = Bebida.objects.all()[:3]
+        context['all_bebidas'] = all_bebidas
+        return context
 
 
+class Categorie(TemplateView):
+    template_name = 'categorie.html'
 
-class Home(View):
+    def get_context_data(self, pk,**kwargs):
 
-    def get(self,request, *args, **kwargs):
-
-        return render(request, "home.html")
-
-def categories(request,id=None, *args, **kwargs):
-
-    return render(request, "categorias.html")
-
-class Categorie(View):
-
-    def get(self,request,pk,*args, **kwargs):
-        bebida = Bebida.objects.filter(categoria__id = pk)
-        context = {'bebida': bebida}
-        print(bebida)
-        return render(request,"categorie.html",context)
-
-def categorie(request,pk):
-
-    #bebida = Bebida.objects.get(id=pk)
-    #print(pk)
-    #categoria__id = Categoria.objects.get(id=pk)
-    bebida = Bebida.objects.filter(categoria__id = pk)
-    context = {'bebida': bebida}
-    print(bebida)
-    return render(request,"categorie.html",context)
-    #id = id
-    #bebida_obj = None
-    #if id is not None:
-    #    bebida_obj = Bebida.objects.get(id=id)
-    #context = {'object':bebida_obj}
-
-#def form_view(request):
-#
-#    form = ComentarioForm()
-#
-#    return render(request, 'prueba.html', {'form': form})
+        context =  super().get_context_data(**kwargs)
+        all_bebidas = Bebida.objects.filter(categoria__id = pk)
+        context['all_bebidas'] = all_bebidas
+        return context
 
 def form_view(request,):
     if request.method == 'POST':
@@ -58,13 +36,13 @@ def form_view(request,):
 
     return render(request, 'prueba.html', {'form': form})
 
-class CategoriesList(ListView):
-    model = Categoria
+class Categories(TemplateView):
+
     template_name = 'categories.html'
-
-
-#def my_view(request, A_pk):
-#       
-#    a = Categoria.objects.get(pk=A_pk)    
-#    
-#    return render('pruebacategoria.html', {'a': a})
+    def get_context_data(self, **kwargs):
+        print("prueba")
+        context =  super().get_context_data(**kwargs)
+        all_categories = Categoria.objects.all()
+        context['all_categories'] = all_categories
+        print(context)
+        return context
