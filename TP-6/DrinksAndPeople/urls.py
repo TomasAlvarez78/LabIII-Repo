@@ -8,5 +8,6 @@ urlpatterns = [
     path('categorie/<int:pk>/',views.categorie, name="categorie"),
     path('prueba/',views.form_view, name="prueba"),
     # path('bebidas/<int:id>',BebidasView.as_view(), name="bebidas"),
+    path('random/', views.random, name="random"),
 
 ]

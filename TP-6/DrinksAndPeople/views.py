@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from DrinksAndPeople.forms import ComentarioForm
 from DrinksAndPeople.models import Comentario,Bebida
 from django.views.generic import View,TemplateView
+from random import randint
 
 categories = [
     {'id': 1, 'name': 'Categorie 1'},
@@ -58,6 +59,13 @@ def categorie(request,pk):
     context = {'categories': categories}
     
     return render(request,"categorie.html", context)
+
+def random (request):
+    bebida_random = randint(0, 44)
+    bebida= Bebida.objects.get(id=bebida_random)
+    print (bebida)
+    #context = {'id_bebida' : Bebida.BebidaCocktailID  }
+    return render (request, "random.html" )
 
 #def form_view(request):
 #

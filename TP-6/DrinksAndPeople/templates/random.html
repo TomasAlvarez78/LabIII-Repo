@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %} 
+<section class="container-fluid mx-auto">
+  <h1 class="w-50 mx-auto text-center pt-5">Random Drink</h1>
+  <div class="row w-75 mx-auto my-5 servicio-fila">
+    <div class="col-lg-4 col-md-12 col-sm-12 mx-auto">
+      <div class="card" href="">
+        <img src="{% static 'assets/img/DrinkCarousel3.jpg' %}" alt="trago 1" />
+        <div class="card-body">
+          <!--<h5 class="card-title text-center">{{categorie.name}}</h5>-->
+          <h4 class="card-title text-center">Trago random</h4>
+          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. At a fuga iure, blanditiis libero, commodi quas consequatur, aspernatur accusamus officiis id enim temporibus sit explicabo culpa? Voluptatum quas exercitationem eveniet!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+    <div class="w-50 m-auto text-center" id="equipo">
+        <h1 class="mb-5 fs-2"> Estudiantes de <span class="text-warning">Ingieria Informatica</span> </h1>
+    </div>
+    <p class="fs-4">
+        Esta pagina fue desarrollada por estudiante de la carrera de Ingeieria Informatica
+        de la Universidad Blas Pascal como trabajo final en la materia Laboratorio 3.
+    </p>
+</section>
+
+  
+
+
+
+
+{% endblock %}
