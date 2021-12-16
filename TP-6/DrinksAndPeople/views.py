@@ -1,3 +1,4 @@
+from django.http import request
 from django.shortcuts import render, redirect
 from DrinksAndPeople.forms import ComentarioForm
 from DrinksAndPeople.models import Comentario,Bebida
@@ -60,13 +61,22 @@ def categorie(request,pk):
     
     return render(request,"categorie.html", context)
 
-def random (request):
-    bebida_random = randint(1, 44)
-    bebida= Bebida.objects.get(id=bebida_random)
-    print (bebida)
-    context = {'bebida' : bebida  }
-    return render (request, "random.html", context)
 
+class B_random(TemplateView):
+    template_name = 'random.html'
+    def get_context_data(self, **kwargs):
+        context = super(B_random, self).get_context_data(**kwargs)
+        bebida_random = randint(1, 44)
+        bebida= Bebida.objects.get(id=bebida_random)
+        context["bebida"] = bebida
+        return context
+    
+#def random (request):
+#    bebida_random = randint(1, 44)
+#    bebida= Bebida.objects.get(id=bebida_random)
+#    print (bebida)
+#    context = {'bebida' : bebida  }
+#    return render (request, "random.html", context)
 #def form_view(request):
 #
 #    form = ComentarioForm()
