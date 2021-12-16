@@ -70,6 +70,7 @@ for cat in categorias:
                 BebidaCocktailID = bebidaId,
                 categoria = Categoria.objects.get(nombre=cat),
                 imagen_url = img_url,
+                karma = 0,
                 #imagen_url = Image.open(requests.get(bebida['strDrinkThumb'], stream=True).raw)
                 # im = Image.open(requests.get(url, stream=True).raw)
                 # imagen = bebida['strDrinkThumb']

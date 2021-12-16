@@ -37,7 +37,8 @@ class Ingrediente(models.Model):
 
 class Bebida(models.Model):
     nombre = models.CharField(max_length=100)
-    BebidaCocktailID = models.IntegerField()
+    BebidaCocktailID = models.IntegerField(default=None,
+                                            blank=True)
     categoria = models.ForeignKey(Categoria,null=False,on_delete=models.CASCADE)
     ingredientes = models.ManyToManyField(Ingrediente,
                                             verbose_name='Ingredientes',
@@ -45,12 +46,12 @@ class Bebida(models.Model):
                                             blank=True,
                                             related_name='mis_ingredientes')
     # imagen = models.ImageField(upload_to='bebidasImagenes/')
-    # imagen_url = models.CharField(max_length=512)
     imagen_url = models.URLField(max_length=256,
                                 default=None,
-                                blank=True
-                                )
-    
+                                blank=True)
+    karma = models.IntegerField(default=0,blank=True)
+
+
     class Meta:
         verbose_name = 'Bebida'
         verbose_name_plural = 'Bebidas'
@@ -62,3 +63,6 @@ class Comentario(models.Model):
     nombre =  models.CharField(max_length=100)
     apellido =  models.CharField(max_length=100)
     descripcion = models.TextField(max_length=600)
+    bebida = models.ForeignKey(Bebida,
+                            null=False,
+                            on_delete=models.CASCADE)

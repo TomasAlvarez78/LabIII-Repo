@@ -1,9 +1,7 @@
 from django.shortcuts import render, redirect
-
 from DrinksAndPeople.forms import ComentarioForm
-from DrinksAndPeople.models import Comentario
-
-
+from DrinksAndPeople.models import Comentario,Bebida
+from django.views.generic import View,TemplateView
 
 categories = [
     {'id': 1, 'name': 'Categorie 1'},
@@ -30,6 +28,24 @@ posts = [
         'date_posted': 'NOv 18, 2011'
     }
 ]
+
+class HomeVista(TemplateView):
+    template_name = 'home.html'
+
+    def get_context_data(self, **kwargs):
+        context =  super().get_context_data(**kwargs)
+        all_bebidas = Bebida.objects.all()[:3]
+        context['all_bebidas'] = all_bebidas
+        return context
+
+# class BebidasVista(TemplateView):
+#     template_name = 'bebidas.html'
+
+#     def get_context_data(self, **kwargs):
+#         context =  super().get_context_data(**kwargs)
+#         all_bebidas = Bebida.objects.all()
+#         context['all_bebidas'] = all_bebidas
+#         return context
 
 def home(request):
     return render(request, "home.html")
