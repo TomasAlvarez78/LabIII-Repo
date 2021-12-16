@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.views.generic import ListView
+from django.views.generic import ListView, View
 from DrinksAndPeople.forms import ComentarioForm
 from DrinksAndPeople.models import Categoria, Bebida
 
@@ -7,12 +7,23 @@ from DrinksAndPeople.models import Categoria, Bebida
 
 
 
-def home(request):
-    return render(request, "home.html")
+class Home(View):
+
+    def get(self,request, *args, **kwargs):
+
+        return render(request, "home.html")
 
 def categories(request,id=None, *args, **kwargs):
 
     return render(request, "categorias.html")
+
+class Categorie(View):
+
+    def get(self,request,pk,*args, **kwargs):
+        bebida = Bebida.objects.filter(categoria__id = pk)
+        context = {'bebida': bebida}
+        print(bebida)
+        return render(request,"categorie.html",context)
 
 def categorie(request,pk):
 
