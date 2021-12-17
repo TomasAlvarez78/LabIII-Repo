@@ -11,14 +11,33 @@
           <!--<h5 class="card-title text-center">{{categorie.name}}</h5>-->
           <h4 class="card-title text-center">{{bebida.nombre}}
           </h4>
-          <p class="card-text">Categoria: {{bebida.categoria}}
-              ingredientes: 
+          <p class="card-text">Categoria: {{bebida.categoria}} 
           </p>
+          Ingredientes:{% for ingrediente in bebida.ingredientes.all %}
+                <p class="card-text d-inline ">{{    ingrediente.nombre    }}   ||   </p>
+                {% endfor %}
         </div>
       </div>
     </div>
   </div>
+  <footer class="footer py-4">
+    <div class="container">
+        <div class="row align-items-center-dark">
+            <span class="col-lg-4 text-warning fs-6 fw-boldstart ">Copyright   &copy; Drinks & People 2021</span>
+            <div class="col-lg-4 my- my-lg-0">
+                <a  <img src="{{bebida.imagen_url}}" alt="Twitter 1" /></a>
+                <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <a class="link-dark text-decoration-none me-3" href="#!">Privacy Policy</a>
+                <a class="link-dark text-decoration-none" href="#!">Terms of Use</a>
+            </div>
+        </div>
+    </div>
+  </footer>
 </section>
+
 
   
 {% endblock %}
