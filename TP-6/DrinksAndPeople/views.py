@@ -5,6 +5,9 @@ from DrinksAndPeople.models import Categoria, Bebida
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+import requests
+
+
 
 class HomeVista(TemplateView):
     template_name = 'home.html'
@@ -17,6 +20,27 @@ class HomeVista(TemplateView):
         all_bebidas = list(reversed(all_bebidas))[:3]
 
         context['all_bebidas'] = all_bebidas
+        return context
+class BebidaVista(TemplateView):
+    template_name = 'bebida.html'
+
+    def get_context_data(self,pk,**kwargs):
+        context =  super().get_context_data(**kwargs)
+        bebida = Bebida.objects.get(id=pk)
+        print(bebida)
+        print(bebida.BebidaCocktailID)
+
+        link_bebida = f'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i={bebida.BebidaCocktailID}'
+
+        r = requests.get(link_bebida)
+        json_bebida = r.json()['drinks'][0]
+        if r.status_code == 200:
+            context['bebida'] = bebida
+            # print(json_bebida['strGlass'])
+            context['vaso'] = json_bebida['strGlass']
+            context['instrucciones'] = json_bebida['strInstructions']
+            # context['vaso'] = json_bebida['drinks']
+
         return context
 
 

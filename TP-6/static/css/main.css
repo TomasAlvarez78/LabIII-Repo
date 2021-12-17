@@ -42,3 +42,12 @@ body {
         margin-top: 25px;
     }
 }
+
+
+.card-left-our {
+    flex-direction: row !important;
+    width: 800px !important;
+}
+.card-left-our img {
+    width: 250px !important;
+}
