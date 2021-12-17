@@ -4,9 +4,8 @@ from . import views
 
 urlpatterns = [
     path('',HomeVista.as_view(), name="home"),
-    path('categories/',views.categories, name="categories"),
-    path('categorie/<int:pk>/',views.categorie, name="categorie"),
+    path('categories/',views.Categories.as_view(), name="categories"),
+    path('categorie/<int:pk>/',views.Categorie.as_view(), name="categorie"),
     path('prueba/',views.form_view, name="prueba"),
-    # path('bebidas/<int:id>',BebidasView.as_view(), name="bebidas"),
 
 ]

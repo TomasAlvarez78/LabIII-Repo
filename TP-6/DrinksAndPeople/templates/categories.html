@@ -1,124 +1,120 @@
-{% load static %} {% include 'navbar.html'%} --
+{% extends 'base.html' %} {% load static %}
+{% block content %}
+
 <section class="container-fluid mx-auto">
   <h1 class="w-50 mx-auto text-center pt-5">Categories</h1>
+  {% if all_categories %}
   <div class="row w-75 mx-auto my-5 servicio-fila">
-    <div class="col-lg-4 col-md-12 col-sm-12">
-      <div class="card" href="">
-        <img src="{% static 'assets/img/DrinkCarousel3.jpg' %}" alt="trago 1" />
+ <div class="col-lg-4 col-md-12 col-sm-12">
+      <div class="card" href = "/categorie/{{categorie.id}}">
+        <img src="../{{all_categories.0.imagen}}" alt="{{all_categories.0.nombre}} trago img" />
         <div class="card-body">
-          <h5 class="card-title text-center">{{categorie.name}}</h5>
+          <h5 class="card-title text-center"><a href="categorie">{{all_categories.0.nombre}}</a></h5>
         </div>
       </div>
     </div>
 
     <div class="col-lg-4 col-md-12 col-sm-12">
       <div class="card">
-        <img src="{% static 'assets/img/DrinkCarousel4.jpg' %}" alt="trago 1" />
+        <img src="../{{all_categories.1.imagen}}" alt="{{all_categories.0.nombre}} trago img" />
         <div class="card-body">
-          <h5 class="card-title text-center">Trago 1</h5>
+          <h5 class="card-title text-center">{{all_categories.1.nombre}}</h5>
         </div>
       </div>
     </div>
 
     <div class="col-lg-4 col-md-12 col-sm-12">
       <div class="card">
-        <img src="{% static 'assets/img/DrinkCarousel5.jpg' %}" alt="trago 1" />
+        <img src="../{{all_categories.2.imagen}}" alt="{{all_categories.0.nombre}} trago img" />
         <div class="card-body">
-          <h5 class="card-title text-center">Trago 1</h5>
+          <h5 class="card-title text-center">{{all_categories.2.nombre}}</h5>
         </div>
       </div>
     </div>
   </div>
-  <div class="row w-75 mx-auto my-5 servicio-fila">
-    <div class="col-lg-4 col-md-12 col-sm-12">
-      <div class="card">
-        <img src="{% static 'assets/img/DrinkCarousel3.jpg' %}" alt="trago 1" />
-        <div class="card-body">
-          <h5 class="card-title text-center">Trago 1</h5>
-        </div>
-      </div>
-    </div>
+</div>
 
+<div class="row w-75 mx-auto my-5 servicio-fila">
     <div class="col-lg-4 col-md-12 col-sm-12">
-      <div class="card">
-        <img src="{% static 'assets/img/DrinkCarousel4.jpg' %}" alt="trago 1" />
-        <div class="card-body">
-          <h5 class="card-title text-center">Trago 1</h5>
-        </div>
-      </div>
-    </div>
+         <div class="card" href="">
+           <img src="../{{all_categories.3.imagen}}" alt="{{all_categories.0.nombre}} trago img" />
+           <div class="card-body">
+             <h5 class="card-title text-center">{{all_categories.3.nombre}}</h5>
+           </div>
+         </div>
+       </div>
+   
+       <div class="col-lg-4 col-md-12 col-sm-12">
+         <div class="card">
+           <img src="../{{all_categories.4.imagen}}" alt="{{all_categories.0.nombre}} trago img" />
+           <div class="card-body">
+             <h5 class="card-title text-center">{{all_categories.4.nombre}}</h5>
+           </div>
+         </div>
+       </div>
+   
+       <div class="col-lg-4 col-md-12 col-sm-12">
+         <div class="card">
+           <img src="../{{all_categories.5.imagen}}" alt="{{all_categories.0.nombre}} trago img" />
+           <div class="card-body">
+             <h5 class="card-title text-center">{{all_categories.5.nombre}}</h5>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
 
+   <div class="row w-75 mx-auto my-5 servicio-fila">
     <div class="col-lg-4 col-md-12 col-sm-12">
-      <div class="card">
-        <img src="{% static 'assets/img/DrinkCarousel5.jpg' %}" alt="trago 1" />
-        <div class="card-body">
-          <h5 class="card-title text-center">Trago 1</h5>
-        </div>
-      </div>
-    </div>
-  </div>
+         <div class="card" href="">
+           <img src="../{{all_categories.6.imagen}}" alt="{{all_categories.0.nombre}} trago img" />
+           <div class="card-body">
+             <h5 class="card-title text-center">{{all_categories.6.nombre}}</h5>
+           </div>
+         </div>
+       </div>
+   
+       <div class="col-lg-4 col-md-12 col-sm-12">
+         <div class="card">
+           <img src="../{{all_categories.7.imagen}}" alt="{{all_categories.0.nombre}} trago img" />
+           <div class="card-body">
+             <h5 class="card-title text-center">{{all_categories.7.nombre}}</h5>
+           </div>
+         </div>
+       </div>
+   
+       <div class="col-lg-4 col-md-12 col-sm-12">
+         <div class="card">
+           <img src="../{{all_categories.8.imagen}}" alt="{{all_categories.0.nombre}} trago img" />
+           <div class="card-body">
+             <h5 class="card-title text-center">{{all_categories.8.nombre}}</h5>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
 
-  <div class="row w-75 mx-auto my-5 servicio-fila">
-    <div class="col-lg-4 col-md-12 col-sm-12">
-      <div class="card">
-        <img src="{% static 'assets/img/DrinkCarousel3.jpg' %}" alt="trago 1" />
-        <div class="card-body">
-          <h5 class="card-title text-center">Trago 1</h5>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-4 col-md-12 col-sm-12">
-      <div class="card">
-        <img src="{% static 'assets/img/DrinkCarousel4.jpg' %}" alt="trago 1" />
-        <div class="card-body">
-          <h5 class="card-title text-center">Trago 1</h5>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-4 col-md-12 col-sm-12">
-      <div class="card">
-        <img src="{% static 'assets/img/DrinkCarousel5.jpg' %}" alt="trago 1" />
-        <div class="card-body">
-          <h5 class="card-title text-center">Trago 1</h5>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row w-75 mx-auto my-5 servicio-fila">
+   <div class="row w-75 mx-auto my-5 servicio-fila">
     <div class="col-lg-4 col-md-12 col-sm-12 mx-auto">
       <div class="card">
-        <img src="{% static 'assets/img/DrinkCarousel3.jpg' %}" alt="trago 1" />
+        <img src="../{{all_categories.9.imagen}}" alt="{{all_categories.0.nombre}} trago img" />
         <div class="card-body">
-          <h5 class="card-title text-center">Trago 1</h5>
+          <h5 class="card-title text-center">{{all_categories.9.nombre}}</h5>
         </div>
       </div>
     </div>
 
     <div class="col-lg-4 col-md-12 col-sm-12 mx-auto">
       <div class="card">
-        <img src="{% static 'assets/img/DrinkCarousel4.jpg' %}" alt="trago 1" />
+        <img src="../{{all_categories.10.imagen}}" alt="{{all_categories.0.nombre}} trago img" />
         <div class="card-body">
-          <h5 class="card-title text-center">Trago 1</h5>
+          <h5 class="card-title text-center">{{all_categories.10.nombre}}</h5>
         </div>
       </div>
     </div>
   </div>
+  {% else %}
+  <h1>No hay registros de bebidas</h1>
+  {% endif %}
 </section>
-
-{% block content %}   
-
-<form method="post">
-    {% csrf_token %}
-    {{ form }}
-    <button type="submit">Enviar</button>
-
-</form>
-
-
-
 {% endblock %}
-
-

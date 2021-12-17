@@ -1,36 +1,41 @@
-{% include 'navbar.html'%}
+{% extends 'base.html'%} {% load static %} 
+{% block content %}
 
-<div class="card mb-3" style="max-width: 540px;">
-    <div class="row g-0">
-      <div class="col-md-4">
-        <img src="..." class="img-fluid rounded-start" alt="...">
+
+<section class="container mt-5">
+  <div class="row g-3 mx-auto">
+    {%for bebida in all_bebidas%}
+    <div class="col-12 col-md-6 col-lg-6">
+      <div class="card mx-auto" style="max-width: 540px">
+          <img src="{{ bebida.imagen_url }}" class="card-img-top" alt="A Street in Europe">
+          <div class="card-body" style="height: 237px;">
+              <h5 class="card-title text-center">{{bebida.nombre}}</h5>
+              <h5 class="card-title text-left">Ingredientes: </h5>
+                {% for ingrediente in bebida.ingredientes.all %}
+                <p class="card-text d-inline ">{{ingrediente.nombre}}  </p>
+                {% endfor %} 
+              <button type="submit" name="positive" id={{bebida.name}} onclick="sumar()" class="btn btn-success mt-2 d-block" style="width: 100%;">Me Gusta</a>
+              <button type="submit" name="negative" id={{bebida.name}} onclick="restar()" class="btn btn-danger mt-2 d-block" style="width: 100%;">No me gusta</a>
+          </div>
       </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-        </div>
-      </div>
-    </div>
   </div>
+    {% endfor %}   
+  </div>
+</section>
 
-{% block content %}  
+<script type="text/javascript">
+  var a = 0;
+function sumar() {
+  a = a + 1;
+  document.getElementById("btn1").value = a;
+  console.log(a)
 
-<form method="post">
-    {% csrf_token %}
-    {{ form }}
-    <button type="submit">Enviar</button>
-
-</form>
-
-
+}
+function restar() {
+  a = a - 1;
+  document.getElementById("btn2").value = a;
+  console.log(a)
+}
+</script>
 
 {% endblock %}
-
-
-
-
-
-
-

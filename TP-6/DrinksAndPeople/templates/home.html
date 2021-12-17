@@ -1,6 +1,4 @@
-{% extends 'base.html' %}
-{% load static %}
-
+{% extends 'base.html' %} {% load static %}
 
 <!------------------------------------------------------------------>
 <!---SLIDER DE IMAGENES-->
@@ -37,13 +35,14 @@
 <!------------------------------------------------------------------> 
 
 <section class="w-50 mx-auto text-center pt-5">
-  
-  <h1 class="p-3 fs-2 border-top border-3 ">
-      Un lugar donde encontraras los mejores <span class="text-warning">Cocktails</span>
-      <p class="p-3 fs-4"><span class="text-warning">Cocktails & Drinks</span> es una pagina que busca mostrar
-      los mejores Cocktails seleccionados por la gente</p>
+  <h1 class="p-3 fs-2 border-top border-3">
+    Un lugar donde encontraras los mejores
+    <span class="text-warning">Cocktails</span>
+    <p class="p-3 fs-4">
+      <span class="text-warning">Drinks & People</span> es una pagina que
+      busca mostrar los mejores Cocktails seleccionados por la gente
+    </p>
   </h1>
-
 </section>
 
 <!------------------------------------------------------------------>
@@ -51,23 +50,21 @@
 <!------------------------------------------------------------------> 
 
 {% include 'cards.html'%}
-<!-- {% for i in all_bebidas %}
-<h1>{{i}}</h1>
-{%endfor%} -->
 
 <!------------------------------------------------------------------>
 <!---ACERCA DE-->
 <!------------------------------------------------------------------> 
 
-<section class='container'>
+<section class="container">
   <div class="w-50 m-auto text-center" id="equipo">
-    <h1 class="mb-5 fs-2"> Estudiantes de <span class="text-warning">Ingenieria Informatica</span> </h1>
+    <h1 class="mb-5 fs-2">Estudiantes de <span class="text-warning">Ingenieria Informatica</span></h1>
   </div>
   <p class="fs-4">
-    Esta pagina fue desarrollada por estudiante de la carrera de Ingeieria Informatica
-    de la Universidad Blas Pascal como trabajo final en la materia Laboratorio 3
+    Esta pagina fue desarrollada por estudiante de la carrera de Ingeieria
+    Informatica de la Universidad Blas Pascal como trabajo final en la materia
+    Laboratorio 3
   </p>
+</section>
 </section>
 
 {% endblock %}
-
