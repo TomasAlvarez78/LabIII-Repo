@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, View, TemplateView
-from DrinksAndPeople.forms import ComentarioForm
 from DrinksAndPeople.models import Categoria, Bebida
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
@@ -56,7 +55,7 @@ class Categories(TemplateView):
         return context
 
 class B_random(TemplateView):
-    template_name = 'bebida.html'
+    template_name = 'random.html'
     
     def get_context_data(self, **kwargs):
         context = super(B_random, self).get_context_data(**kwargs)
@@ -78,14 +77,3 @@ def KarmaPostNeg(request, pk):
     bebida.save()
     return HttpResponseRedirect(request.META['HTTP_REFERER'])
     
-def form_view(request,):
-    if request.method == 'POST':
-        form = ComentarioForm(request.POST)
-        if form.is_valid():
-            print(form)
-            form.save()
-        return redirect('categories')
-    else:
-        form = ComentarioForm()  
-
-    return render(request, 'prueba.html', {'form': form})

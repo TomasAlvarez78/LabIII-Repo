@@ -12,13 +12,13 @@
             <h5>Instrucciones: </h5>
             <p>{{instrucciones}}</p>
             <h5>Ingredientes: </h5>
-            <ul>
+          
             {% for ingrediente in bebida.ingredientes.all %}
-              <li class=""> 
+             
                 {{ingrediente.nombre}}
-              </li>
+             
             {% endfor %}
-            </ul>
+            
             <p class="card-text text-success text-center">Que opinas de la bebida?</p>
             <div class = "container d-flex justify-content-center ">
               <form action="{% url 'karmapos' bebida.id %}" method="POST" class="d-inline m-3">

@@ -7,7 +7,6 @@ urlpatterns = [
     path('categories/',views.Categories.as_view(), name="categories"),
     path('categorie/<int:pk>/',views.Categorie.as_view(), name="categorie"),
     path('bebida/<int:pk>/',views.BebidaVista.as_view(), name="bebida"),
-    path('prueba/',views.form_view, name="prueba"),
     path('karmapos/<int:pk>', views.KarmaPostPos, name="karmapos"),
     path('karmaneg/<int:pk>', views.KarmaPostNeg, name="karmaneg"),
     path('random/', views.B_random.as_view(), name="random"),
