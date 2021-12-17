@@ -10,5 +10,6 @@ urlpatterns = [
     path('prueba/',views.form_view, name="prueba"),
     path('karmapos/<int:pk>', views.KarmaPostPos, name="karmapos"),
     path('karmaneg/<int:pk>', views.KarmaPostNeg, name="karmaneg"),
+    path('random/', views.B_random.as_view(), name="random"),
 
 ]

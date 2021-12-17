@@ -10,10 +10,6 @@ class Categoria(models.Model):
                                     default=None,
                                     null=True,
                                     blank=True)
-    # imagen = models.ImageField(upload_to='categoriaImagenes/',
-    #                             null=True,
-    #                             default=None,
-    #                             blank=True)
     imagen = models.TextField(max_length=256,
                                     default=None,
                                     null=True,
@@ -45,12 +41,10 @@ class Bebida(models.Model):
                                             default=None,
                                             blank=True,
                                             related_name='mis_ingredientes')
-    # imagen = models.ImageField(upload_to='bebidasImagenes/')
     imagen_url = models.URLField(max_length=256,
                                 default=None,
                                 blank=True)
     karma = models.IntegerField(default=0,blank=True)
-
 
     class Meta:
         verbose_name = 'Bebida'

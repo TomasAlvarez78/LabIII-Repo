@@ -9,7 +9,7 @@
     <div class="card mx-auto" style="max-width: 540px">
         <img src="{{ bebida.imagen_url }}" class="card-img-top" alt="A Street in Europe">
         <div class="card-body" style="height: 237px;">
-            <h5 class="card-title text-center">{{bebida.nombre}}</h5>
+            <h5 class="card-title text-center"><a href="{% url 'bebida' bebida.id %}" class="text-dark text-decoration-none">{{bebida.nombre}}</a></h5>
             <h5 class="card-title text-left">Ingredientes: </h5>
               {% for ingrediente in bebida.ingredientes.all %}
               <p class="card-text d-inline ">{{ingrediente.nombre}}  </p>
@@ -38,6 +38,8 @@
   {% endfor %}   
 </div>
 </section>
+
+{% include 'footer.html' %}
 
 {% endblock %}
 

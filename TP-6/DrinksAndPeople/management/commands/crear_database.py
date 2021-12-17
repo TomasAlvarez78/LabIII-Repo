@@ -1,5 +1,6 @@
 from django.core.management.base import BaseCommand
 from DrinksAndPeople.models import  *
+from django.core.management import call_command
 
 import os
 import sys
@@ -10,6 +11,9 @@ from urllib.request import AbstractDigestAuthHandler, urlopen
 
 class Command(BaseCommand):
     def handle(self, *args, **options):
+
+        bebidas_por_categoria = 3
+
         try:
             Bebida.objects.all().delete()
             Categoria.objects.all().delete()
@@ -55,17 +59,13 @@ class Command(BaseCommand):
                 json_BebidaCat = r2.json()
                 i = 0
                 for bebida in json_BebidaCat['drinks']:
-                    if i > 3:
+                    if i > bebidas_por_categoria:
                         break
                     i = i + 1
                     print(bebida)
                     bebidaId = bebida['idDrink']
 
                     # Creo y guardo las bebidas sin ingredientes
-                    # img = urlopen(bebida['strDrinkThumb']).read()
-                    # img_name = 'media/bebidasImagenes/' + bebida['strDrink'].replace("/","-") + ".jpg"
-                    # open(img_name,"wb").write(img)
-                    # img = Image.open(img_name)
                     img_url = bebida['strDrinkThumb']
 
                     b = Bebida(
@@ -74,9 +74,6 @@ class Command(BaseCommand):
                         categoria = Categoria.objects.get(nombre=cat),
                         imagen_url = img_url,
                         karma = 0,
-                        #imagen_url = Image.open(requests.get(bebida['strDrinkThumb'], stream=True).raw)
-                        # im = Image.open(requests.get(url, stream=True).raw)
-                        # imagen = bebida['strDrinkThumb']
                     )
 
                     b.save()

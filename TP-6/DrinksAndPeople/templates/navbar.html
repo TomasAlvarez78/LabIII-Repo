@@ -2,8 +2,9 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light p-3" id="menu">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">
-      <span class="text-warning fs-5 fw-bold">Drinks & People</span>
+    <img src="{%static 'assets/img/cocktail.png' %}" alt="icono img" width = "3%"/>
+    <a class="navbar-brand" href="{% url 'home' %}">
+      <span class="text-warning fs-5 fw-bold d-inlin fa-xs">Drinks & People</span>
     </a>
     <button
       class="navbar-toggler"
@@ -24,6 +25,11 @@
 
         <li class="nav-item">
           <a class="nav-link" href="{% url 'categories' %}">Categorias</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active"aria-current="page" href="random">Random</a>
+          
         </li>
 
         <!-- <li class="nav-item">
