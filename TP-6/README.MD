@@ -24,4 +24,8 @@ Para crear nuestras paginas web utilizamos el lenguaje HTML importando e impleme
 
  # <center>iNSTALACION
  
- .....
+Instalamos la biblioteca Requests y Django en nuestro entorno virtual con el comando en consola "$pip install -r requirements.txt"
+
+ # <center>EJECUCION DE SERVIDOR
+
+ python3 manage.py runserver
